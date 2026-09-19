@@ -147,4 +147,17 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
+
+    private static void getName(Scanner in, ContactBook cBook) {
+        int number = in.nextInt();
+        in.nextLine();
+
+        if (!cBook.hasContact(number)) {
+            // Mensagem de erro aqui
+        }
+        else {
+            String name = cBook.getName(number);
+            // Mensagem de sucesso aqui
+        }
+    }
 }
