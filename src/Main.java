@@ -148,6 +148,16 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
+    private static void checkSharedContacts(ContactBook cBook){
+        if (cBook.getNumberOfContacts() != 0){
+            if(cBook.checkShared()){
+                //shared message
+            }
+            //not shared message
+        }
+        else System.out.println(BOOK_EMPTY);
+    }
+
     private static void getName(Scanner in, ContactBook cBook) {
         int number = in.nextInt();
         in.nextLine();
