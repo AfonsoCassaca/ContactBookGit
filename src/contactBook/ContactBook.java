@@ -2,6 +2,9 @@ package contactBook;
 
 import contactBook.Contact;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
@@ -60,6 +63,19 @@ public class ContactBook {
         contacts[searchIndex(name)].setEmail(email);
     }
 
+    public boolean checkShared(){
+        initializeIterator();
+        Set<Integer> contactSet = new HashSet<>(DEFAULT_SIZE);
+        while(hasNext()){
+            Contact current = next();
+            if(contactSet.contains(current.getPhone())){
+                return true;
+            }
+            contactSet.add(current.getPhone());
+        }
+        return false;
+    }
+
     private int searchIndex(String name) {
         int i = 0;
         int result = -1;
@@ -79,6 +95,8 @@ public class ContactBook {
             tmp[i] = contacts[i];
         contacts = tmp;
     }
+
+
 
     public void initializeIterator() {
         currentContact = 0;
